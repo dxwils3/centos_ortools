@@ -1,6 +1,6 @@
 # centos_ortools
 
-This guide is for installing ortools on centos.  *It's still a work in progress.*
+This guide is for installing ortools on centos.  There are probably better ways to do this.  If so, let me know.
 
 - `wget https://github.com/google/or-tools/releases/download/v5.1/or-tools_python_examples_v5.1.4045.tar.gz`
 - `tar xvf or-tools_python_examples_v5.1.4045.tar.gz`
@@ -23,9 +23,9 @@ This won't build for C# because I didn't bother setting up mono.
 
 - `make test`
 
-This should work, but it's not working from the command line.
+The tests should work, but if you fire up `python` at the command line, `import ortools` doesn't work because `make` doesn't install ortools anywhere useful.
 
-Adding this to the module works:
-- `sys.path.append('ORTOOLS_DIRECTORY/src')`
+So we do this:
+- `cp -r ortools $VIRTUALENV_HOME/lib/python2.7/site-packages`
 
-where you replace ORTOOLS_DIRECTORY with the location where you extracted it above.
+I suppose one could copy it into the system site-packages.  `ortools` is found in the `src` subdirectory in the ortools folder.
