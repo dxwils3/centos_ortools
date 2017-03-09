@@ -1,6 +1,6 @@
 # centos_ortools
 
-This guide is for installing ortools on centos.  There are probably better ways to do this.
+I just want to record the steps to get this done.
 
 First, follow the instructions on the google page: https://developers.google.com/optimization/introduction/installing.html#unix_source.
 
@@ -16,5 +16,9 @@ This won't build for C# because I didn't bother setting up mono.
 
 The tests should work, but if you fire up `python` at the command line, `import ortools` doesn't work because `make` doesn't install ortools anywhere useful.
 
+The final step is to
+`export PYTHONPATH=$PYTHONPATH:or-tools-path`
 
-I suppose one could copy it into the system site-packages.  `ortools` is found in the `src` subdirectory in the ortools folder.
+where or-tools-path points to the `src` directory in the or-tools directory, wherever you put it.
+
+It should work now.
